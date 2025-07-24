@@ -157,6 +157,40 @@ We welcome contributions from the community! Please see our [Contributing Guide]
 - [RapidAPI](https://rapidapi.com/) - API services
 - [Smithery](https://smithery.ai/) - Custom agent development
 
+## Environment Setup & Security
+
+When setting up Suna, you'll need to configure your API keys and environment variables:
+
+1. Copy the `.setup_env.json.example` file to create `.setup_env.json`:
+
+   ```bash
+   cp .setup_env.json.example .setup_env.json
+   ```
+
+2. Edit `.setup_env.json` and fill in your actual API keys:
+
+   ```json
+   {
+     "supabase": {
+       "SUPABASE_URL": "your_supabase_url",
+       "SUPABASE_ANON_KEY": "your_supabase_key",
+       "SUPABASE_DATABASE_PASSWORD": "your_password"
+     },
+     "llm": {
+       "ANTHROPIC_API_KEY": "your_anthropic_key",
+       "MODEL_TO_USE": "anthropic/claude-3-7-sonnet-latest"
+     }
+   }
+   ```
+
+3. Run the setup wizard which will use these credentials:
+
+   ```bash
+   python setup.py
+   ```
+
+> **IMPORTANT:** Never commit `.setup_env.json` to version control. This file contains sensitive API keys and has been added to `.gitignore`. Always use the example file as a template when sharing configurations.
+
 ## License
 
 Kortix Suna is licensed under the Apache License, Version 2.0. See [LICENSE](./LICENSE) for the full license text.
